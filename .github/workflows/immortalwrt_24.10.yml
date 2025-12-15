@@ -18,7 +18,7 @@ env:
 
 jobs:
   Build:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     outputs:
       OPENWRTROOT: ${{ steps.update.outputs.OPENWRTROOT }}
       PLATFORM: ${{ steps.compile.outputs.PLATFORM }}
@@ -52,7 +52,6 @@ jobs:
         sudo rm -rf /home/runner/actions-runner/cached/_diag/*.log
         sudo -E apt-get -y purge azure-cli ghc* zulu* llvm* firefox google* dotnet* powershell openjdk* mongodb* moby* || true
         sudo -E apt-get -y update
-        sudo -E apt-get -y install rename $(curl -fsSL is.gd/depends_ubuntu_2204)
         sudo -E apt -y install \
            build-essential \
            gcc-multilib g++-multilib \
